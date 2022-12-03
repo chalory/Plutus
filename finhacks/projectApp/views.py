@@ -9,6 +9,10 @@ def index(request):
 
 
 def quiz(request):
+  template = loader.get_template('quiz.html')
+  return HttpResponse(template.render())
+def index(response):
+    template = loader.get_template("landing.html")
     template = loader.get_template("quiz.html")
     return HttpResponse(template.render())
 
