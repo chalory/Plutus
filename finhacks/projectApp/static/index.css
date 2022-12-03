@@ -256,12 +256,12 @@ img {
     width: 24vw;
     cursor: pointer;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 .slide-content {
     color: #000;
     width: 30vw;
-    padding: 3vw 10vw 3vw 4vw;
+    padding: 0 10vw 3vw 4vw;
 }
 .slide-date {
     color: #8f6447;
@@ -272,14 +272,13 @@ img {
 }
 .slide-title {
     font-weight: 500;
-    font-size: 1.2vw;
+    font-size: 1.3vw;
     letter-spacing: 0.1vw;
     line-height: 1.55vw;
     padding-bottom: 1.8vw;
 }
 .slide-text {
-    font-size: 0.8vw;
-    line-height: 1.2vw;
+    font-size: 1vw;
     opacity: 0.8;
     padding-bottom: 4vw;
 }
