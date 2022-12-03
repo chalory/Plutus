@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <script defer src="../static/main.js"></script>
+        <link rel="stylesheet" href="../static/index.css" />
+    </head>
+    <body>
+        <section class="needs_and_wants container">
+            <div class="box">
+                <div id="dropZone">
+                    <div
+                        class="drop-box"
+                        id="dropBox1"
+                        ondrop="drop(event)"
+                        ondragover="allowDrop(event)"
+                    >
+                        <p class="heading">Needs</p>
+                    </div>
+                    <div
+                        class="drop-box"
+                        id="dropBox2"
+                        ondrop="drop(event)"
+                        ondragover="allowDrop(event)"
+                    >
+                        <p class="heading">Wants</p>
+                    </div>
+                </div>
+
+                <div id="animals">
+                    {% comment %}
+                    <form class="words-form">
+                        <input type="text" placeholder="Thought input" id="thought-input" />
+                        <button id="submitBtn">Submit</button>
+                    </form>
+                    {% endcomment %}
+                    <ul id="draggableItemsList">
+                        <li draggable="true" ondragstart="drag(event)" id="Water">Water</li>
+                        <li draggable="true" ondragstart="drag(event)" id="Streaming">
+                            Streaming Services
+                        </li>
+                        <li draggable="true" ondragstart="drag(event)" id="Shelter">Shelter</li>
+                        <li draggable="true" ondragstart="drag(event)" id="Entertainment">
+                            Entertainment
+                        </li>
+                        <li draggable="true" ondragstart="drag(event)" id="Food">Food</li>
+                        <li draggable="true" ondragstart="drag(event)" id="The">
+                            The newest technology
+                        </li>
+                        <li draggable="true" ondragstart="drag(event)" id="Car">Car</li>
+                        <li draggable="true" ondragstart="drag(event)" id="Designer">
+                            Designer Clothes
+                        </li>
+                        <li draggable="true" ondragstart="drag(event)" id="Medical">
+                            Medical Care
+                        </li>
+                        <li draggable="true" ondragstart="drag(event)" id="Basic">
+                            Basic Clothing
+                        </li>
+                        <li draggable="true" ondragstart="drag(event)" id="Vacations">Vacations</li>
+                        <li draggable="true" ondragstart="drag(event)" id="Security">Security</li>
+                        <li draggable="true" ondragstart="drag(event)" id="Expensive">
+                            Expensive Gifts
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-container">
+                    <a href="next.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
