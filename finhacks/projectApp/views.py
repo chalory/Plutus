@@ -4,8 +4,8 @@ from django.template import loader
 
 
 def index(request):
-  template = loader.get_template('first.html')
-  return HttpResponse(template.render())
+    template = loader.get_template("landing.html")
+    return HttpResponse(template.render())
 
 
 def quiz(request):
@@ -13,6 +13,7 @@ def quiz(request):
   return HttpResponse(template.render())
 def index(response):
     template = loader.get_template("landing.html")
+    template = loader.get_template("quiz.html")
     return HttpResponse(template.render())
 
 
