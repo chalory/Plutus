@@ -1,167 +1,95 @@
-(function() {
-    var questions = [{
-      question: "What is 2*5?",
-      choices: [2, 5, 10, 15, 20],
-      correctAnswer: 2
-    }, {
-      question: "What is 3*6?",
-      choices: [3, 6, 9, 12, 18],
-      correctAnswer: 4
-    }, {
-      question: "What is 8*9?",
-      choices: [72, 99, 108, 134, 156],
-      correctAnswer: 0
-    }, {
-      question: "What is 1*7?",
-      choices: [4, 5, 6, 7, 8],
-      correctAnswer: 3
-    }, {
-      question: "What is 8*8?",
-      choices: [20, 30, 40, 50, 64],
-      correctAnswer: 4
-    }];
-    
-    var questionCounter = 0; //Tracks question number
-    var selections = []; //Array containing user choices
-    var quiz = $('#quiz'); //Quiz div object
-    
-    // Display initial question
-    displayNext();
-    
-    // Click handler for the 'next' button
-    $('#next').on('click', function (e) {
-      e.preventDefault();
-      
-      // Suspend click listener during fade animation
-      if(quiz.is(':animated')) {        
-        return false;
-      }
-      choose();
-      
-      // If no user selection, progress is stopped
-      if (isNaN(selections[questionCounter])) {
-        alert('Please make a selection!');
-      } else {
-        questionCounter++;
-        displayNext();
-      }
-    });
-    
-    // Click handler for the 'prev' button
-    $('#prev').on('click', function (e) {
-      e.preventDefault();
-      
-      if(quiz.is(':animated')) {
-        return false;
-      }
-      choose();
-      questionCounter--;
-      displayNext();
-    });
-    
-    // Click handler for the 'Start Over' button
-    $('#start').on('click', function (e) {
-      e.preventDefault();
-      
-      if(quiz.is(':animated')) {
-        return false;
-      }
-      questionCounter = 0;
-      selections = [];
-      displayNext();
-      $('#start').hide();
-    });
-    
-    // Animates buttons on hover
-    $('.button').on('mouseenter', function () {
-      $(this).addClass('active');
-    });
-    $('.button').on('mouseleave', function () {
-      $(this).removeClass('active');
-    });
-    
-    // Creates and returns the div that contains the questions and 
-    // the answer selections
-    function createQuestionElement(index) {
-      var qElement = $('<div>', {
-        id: 'question'
-      });
-      
-      var header = $('<h2>Question ' + (index + 1) + ':</h2>');
-      qElement.append(header);
-      
-      var question = $('<p>').append(questions[index].question);
-      qElement.append(question);
-      
-      var radioButtons = createRadios(index);
-      qElement.append(radioButtons);
-      
-      return qElement;
+const numberSteps = $('.quiz__step').length - 1;
+let disableButtons = false;
+const tick = '<div class="answer__tick"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></div>'; 
+let thanks = '<div class="thanks"><div class="thanks__tick">✔ </div><h1 class="thanks__title">Thank you!</h1></div>';
+
+$('.answer__input').on('change', function(e) { 
+ 
+    if($(this).next().children('.answer__tick').length>0){
+      return false
     }
-    
-    // Creates a list of the answer choices as radio inputs
-    function createRadios(index) {
-      var radioList = $('<ul>');
-      var item;
-      var input = '';
-      for (var i = 0; i < questions[index].choices.length; i++) {
-        item = $('<li>');
-        input = '<input type="radio" name="answer" value=' + i + ' />';
-        input += questions[index].choices[i];
-        item.append(input);
-        radioList.append(item);
-      }
-      return radioList;
-    }
-    
-    // Reads the user selection and pushes the value to an array
-    function choose() {
-      selections[questionCounter] = +$('input[name="answer"]:checked').val();
-    }
-    
-    // Displays next requested element
-    function displayNext() {
-      quiz.fadeOut(function() {
-        $('#question').remove();
-        
-        if(questionCounter < questions.length){
-          var nextQuestion = createQuestionElement(questionCounter);
-          quiz.append(nextQuestion).fadeIn();
-          if (!(isNaN(selections[questionCounter]))) {
-            $('input[value='+selections[questionCounter]+']').prop('checked', true);
-          }
-          
-          // Controls display of 'prev' button
-          if(questionCounter === 1){
-            $('#prev').show();
-          } else if(questionCounter === 0){
-            
-            $('#prev').hide();
-            $('#next').show();
-          }
-        }else {
-          var scoreElem = displayScore();
-          quiz.append(scoreElem).fadeIn();
-          $('#next').hide();
-          $('#prev').hide();
-          $('#start').show();
-        }
-      });
-    }
-    
-    // Computes score and returns a paragraph element to be displayed
-    function displayScore() {
-      var score = $('<p>',{id: 'question'});
-      
-      var numCorrect = 0;
-      for (var i = 0; i < selections.length; i++) {
-        if (selections[i] === questions[i].correctAnswer) {
-          numCorrect++;
-        }
-      }
-      
-      score.append('You got ' + numCorrect + ' questions out of ' +
-                   questions.length + ' right!!!');
-      return score;
-    }
-  })();
+  $(this).next().append(tick)
+});
+
+
+$('.navigation__btn--right').click(function(e){
+let currentIndex = Number($('.quiz__step--current').attr('data-question'));
+  if($('.quiz__step--current input:checked').length == 0){
+     //console.log('input empty');
+     return false;
+ }
+  //console.log({'currentIndex': currentIndex, 'numberSteps': numberSteps-1})
+  if(currentIndex == numberSteps + 1 || disableButtons==true){
+    //console.log('last')
+    return false;
+  }
+  if(currentIndex + 1 == numberSteps + 1 ){
+    $(this).addClass('navigation__btn--disabled');
+  }
+  if(currentIndex == numberSteps){
+  $('.summary__item').remove();
+    $('.quiz__step:not(.quiz__summary)').each(function(index, item){
+      console.log(item)
+      let icon = $(item).children('.question__emoji').text()
+      let answer = $(item).children('.answer').find('input:checked').val();
+      let node = '<div class="summary__item"><div class="question__emoji">'+icon+'</div>'+answer+'</div>'
+      $('#summary').append(node)
+    })
+  }
+  const percentage = (currentIndex * 100)/ numberSteps;
+  $('.progress__inner').width(percentage+ '%');
+  console.log('input ok')
+  $('.quiz__step--current').hide('300');
+  $('.quiz__step--current').removeClass('quiz__step--current');
+  $('.quiz__step--'+(currentIndex+1)).show('300').addClass('quiz__step--current');
+  currentIndex = Number($('.quiz__step--current').attr('data-question'));
+   if(currentIndex > 1 ){
+    $('.navigation__btn--left').removeClass('navigation__btn--disabled');
+  }
+});
+/*
+function keypressEvent(e){
+    let key = e.which || e.keyCode;
+
+  if(key==65 || key==66){
+    $('.quiz__step--current input[data-char="'+key+'"]').prop('checked', true).change();
+    console.log($('.quiz__step--current input[data-char="'+key+'"]'))
+   // $('.quiz__step--current input[data-char="'+key+'"] + .answer__label').change();
+  }
+}
+*/
+
+
+
+$('.navigation__btn--left').click(function(e){
+let currentIndex = Number($('.quiz__step--current').attr('data-question'));
+ 
+  console.log({'currentIndex': currentIndex, 'numberSteps': numberSteps-1})
+  if(currentIndex == 1 || disableButtons==true){
+    console.log('first')
+    $(this).addClass('navigation__btn--disabled');
+    return false;
+  }
+ 
+
+  $('.navigation__btn--right').removeClass('navigation__btn--disabled')
+
+  console.log('input ok')
+  $('.quiz__step--current').hide('300');
+  $('.quiz__step--current').removeClass('quiz__step--current');
+  $('.quiz__step--'+(currentIndex-1)).show('300').addClass('quiz__step--current');
+  currentIndex = Number($('.quiz__step--current').attr('data-question'));
+  if(currentIndex == 1 ){
+    $(this).addClass('navigation__btn--disabled');
+  }
+    const percentage = ((currentIndex-1)  * 100)/ numberSteps+1;
+  $('.progress__inner').width(percentage+ '%');
+$('.quiz__step--current').keyup(keypressEvent);
+});
+$('.submit').click(function(e){
+  e.preventDefault();
+  $('.quiz').remove();
+  $(thanks).appendTo('.container');
+  disableButtons=true;
+  $('.navigation__btn').addClass('navigation__btn--disabled')
+})
