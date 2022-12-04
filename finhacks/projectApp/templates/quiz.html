@@ -1,15 +1,17 @@
 <script defer src="../static/quiz.js"></script>
 <link rel="stylesheet" href="../static/quiz.css" />
 
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div class='situation-container'>
+<p class='situation'>Bruce has 1000$ as salary for his job, he wants to spend his money wisely and adopt the 'Spend Less Than You Earn, Save The Difference' rule. Suddenly an Avril Lavign concert is in town and the tickets cost 2000$. Bruce is thinking of borrowing the rest of the money from his friends. Is this a good idea?</p>
+</div>
 <div class="container">
   
     <form class="quiz">
       <div class="quiz__inner">
       <div data-question="1" class="quiz__step--1 quiz__step--current quiz__step">
         <div class="question__emoji">🚬 </div>
-        <h1 class="quiz__question">Do you smoke cigarettes?</h1>
+        <h1 class="quiz__question">Bruce has 1000$ as salary for his job, he wants to spend his money wisely and adopt the 'Spend Less Than You Earn, Save The Difference' rule. Suddenly an Avril Lavign concert is in town and the tickets cost 2000$. Bruce is thinking of borrowing the rest of the money from his friends. Is this a good idea?</h1>
         <div class="answer">
           <input data-char="65" class="answer__input" type="radio" id="smoke_yes" name="smoke" value="Yes">
           <label  class="answer__label" for="smoke_yes">Yes</label>
@@ -17,16 +19,19 @@
         <div class="answer">
           <input data-char="66" class="answer__input" type="radio" id="smoke_no" name="smoke" value="No">
           <label class="answer__label" for="smoke_no">No</label>
-        </div>       
+        </div> 
+        <div class="answer">
+          <input data-char="65" class="answer__input" type="radio" id="smoke_yes" name="smoke" value="Yes">
+          <label  class="answer__label" for="smoke_yes">Yes</label>
+        </div>      
       </div>
   
       </div>
   
     
-        <h1 class="quiz__question">Summary</h1>
     <div id="summary"></div>
                 <div class="submit__container">
-        <a href="#" class="submit">Submit</a>
+        <a href="wish_list" class="submit">Submit</a>
       </div> 
       </div>
         </div>
