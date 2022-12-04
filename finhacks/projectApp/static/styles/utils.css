@@ -10,13 +10,6 @@
     font-family: "Satisfy", cursive;
 }
 
-.container {
-    height: 100vh;
-    overflow: hidden;
-    padding: 100px 150px;
-    position: relative;
-}
-
 /* ! MAIN BTN */
 
 .btn {

@@ -1,4 +1,4 @@
-@import "./styles/base.css";
+@import "./base.css";
 
 .bottom {
     position: fixed;
@@ -67,19 +67,53 @@
 .quiz__question {
     letter-spacing: 1px;
     margin-top: 0;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
+    text-align: center;
 }
 
 .container {
+    position: relative;
+    font-family: inherit;
     display: flex;
-    height: calc(100% - 74px);
+    flex-direction: column;
     width: 100%;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
     padding: 15px 10px;
     margin-top: 50px;
 }
+
+.vid-container {
+    margin-top: 30px;
+    width: 60%;
+}
+
+.vid-container video {
+    width: 100%;
+}
+
+.quiz {
+    position: relative;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.sheet {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
 .answer:first-of-type {
     margin-right: 15px;
 }
@@ -94,18 +128,16 @@
 }
 
 .answer__label {
-    width: 140px;
     border: 1px solid #a7aacb;
     display: flex;
     border-radius: 6px;
-    line-height: 56px;
     font-size: 15px;
     color: #a7aacb;
     text-align: left;
     font-weight: 600;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 1rem;
 }
 
 .answer {
@@ -183,11 +215,13 @@
     justify-content: center;
 }
 .submit {
+    cursor: pointer;
+    border: none;
     background-color: #5861af;
     line-height: 50px;
     display: inline-block;
     border-radius: 25px;
-    padding: 0 15px;
+    padding: 5px 30px;
     font-size: 13px;
     text-decoration: none;
     color: #fff;
@@ -218,4 +252,23 @@
 }
 .thanks {
     text-align: center;
+}
+
+.answers {
+    display: flex;
+    gap: 2rem;
+}
+.answers .answer__label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#result {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    position: relative;
 }
