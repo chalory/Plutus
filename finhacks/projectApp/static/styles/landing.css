@@ -1,0 +1,120 @@
+@import "./base.css";
+
+.landing {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.landing .left {
+    background-image: url("../images/galaxy.jpg");
+    height: 100vh;
+    width: 50vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    /* gap: 2rem; */
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.content {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    width: 450px;
+    margin-bottom: -110px;
+}
+
+.landing h1 {
+    font-family: "Shadows Into Light", cursive;
+
+    font-weight: lighter;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.landing .right img {
+    pointer-events: none;
+    height: 100vh;
+    width: 50vw;
+    object-fit: contain;
+}
+
+.landing p {
+    color: #fff;
+    max-width: 60%;
+}
+
+/* .book {
+    background-image: url("../images/book.jpg");
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    height: 500px;
+    width: 450px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.book .title {
+    position: absolute;
+    font-size: 50px;
+    left: 55%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+} */
+
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans+800");
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+}
+svg {
+    height: 200px;
+    stroke-width: 4;
+}
+.pig {
+    stroke-dasharray: 319 319;
+    stroke-dashoffset: 0px;
+}
+.calculator {
+    stroke-dasharray: 0 252;
+    stroke-dashoffset: 0px;
+}
+.wallet {
+    stroke-dasharray: 0 240;
+    stroke-dashoffset: 0px;
+}
+.loading {
+    margin-bottom: 30px;
+    text-align: center;
+    width: 200px;
+}

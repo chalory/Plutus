@@ -1,0 +1,95 @@
+@import "./base.css";
+
+.needs_and_wants.container {
+    background: #cbc2b9;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* .needs_and_wants .box {
+    background-color: #fff;
+    padding: 20px;
+} */
+
+#animals {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#dropZone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+#dropZone .heading {
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #777;
+    padding-bottom: 0.5rem;
+    position: absolute;
+    top: 10px;
+}
+
+.drop-box {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 250px;
+    border: 1px solid #888;
+    padding: 1rem;
+}
+
+.drop-box li {
+    width: 100%;
+    text-align: left;
+    margin-top: 5px;
+}
+
+.drag-and-drop {
+    padding-bottom: 5rem;
+}
+
+.words-form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+}
+
+.words-form input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+}
+
+.words-form button {
+    background: #3b82f6;
+    color: #fff;
+    border-radius: 1rem;
+    padding: 0.7rem 1.5rem;
+}
+
+#draggableItemsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    list-style: none;
+}
+
+#draggableItemsList li {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}

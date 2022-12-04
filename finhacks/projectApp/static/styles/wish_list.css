@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poiret+One&family=Poppins:wght@200;300;400;500;600&family=Satisfy&display=swap");
+@import "./base.css";
 
-* {
-    box-sizing: border-box;
+.wish-list .btn {
+    border-color: #508c99;
 }
-
-body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
+.wish-list .btn:before {
+    background-color: #508c99;
 }
 
 .d-table,
@@ -773,64 +771,5 @@ body {
 @media screen and (min-width: 500px) {
     .container {
         font-size: 22px;
-    }
-}
-
-/* ! MAIN BTN */
-
-.btn-container {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-}
-
-.btn {
-    font-family: "Poiret One", cursive;
-    letter-spacing: 1px;
-    z-index: 9;
-    background-color: transparent;
-    border: 1px solid #508c99;
-    box-sizing: border-box;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
-    padding: 16px 23px;
-    position: relative;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-.btn:hover,
-.btn:active {
-    outline: 0;
-}
-
-.btn:hover {
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.btn:before {
-    background-color: #508c99;
-    content: "";
-    height: calc(100% + 3px);
-    position: absolute;
-    right: -7px;
-    top: -9px;
-    width: 100%;
-    z-index: -1;
-    transition: filter 300ms ease-in;
-}
-
-.btn:hover:before {
-    filter: brightness(0.88);
-}
-
-@media (min-width: 768px) {
-    .btn {
-        padding: 16px 32px;
     }
 }

@@ -13,12 +13,6 @@ def quiz(request):
     return HttpResponse(template.render())
 
 
-def index(response):
-    template = loader.get_template("landing.html")
-    template = loader.get_template("quiz.html")
-    return HttpResponse(template.render())
-
-
 def needs_and_wants(response):
     template = loader.get_template("needs_and_wants.html")
     return HttpResponse(template.render())
@@ -31,4 +25,9 @@ def slider(response):
 
 def wish_list(response):
     template = loader.get_template("wish_list.html")
+    return HttpResponse(template.render())
+
+
+def expense_tracker(response):
+    template = loader.get_template("expense_tracker.html")
     return HttpResponse(template.render())
