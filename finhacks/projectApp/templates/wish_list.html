@@ -9,23 +9,124 @@
         <meta name="keywords" content="" />
         <meta name="author" content="" />
 
-        <link rel="stylesheet" href="../static/index.css" />
+        <script
+            defer
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        ></script>
 
-        <title>Landing Page</title>
+        <script
+            defer
+            src="https://kit.fontawesome.com/bf5ba39767.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <script defer src="../static/main.js"></script>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="../static/wish_list.css" />
+
+        <title>Wish List</title>
     </head>
 
     <body>
         <section id="wish-list" class="wish-list container">
+            {% comment %}
             <div class="first-intro">
                 <div class="intro-fill">
                     <span class="tf-user-welcome welcome-1"
-                        >We can’t have everything we want all at once,</span
+                        >We can't have everything we want all at once,</span
                     >
                     <span class="tf-user-welcome welcome-2"
                         >but we can achieve our goals over time if we plan ahead.</span
                     >
                     <span class="tf-user-welcome welcome-3">Let's make a wish list!</span>
                 </div>
+            </div>
+            {% endcomment %}
+
+            <div class="content">
+                <div class="info">
+                    <h1>How wish lists drive sales and engagement</h1>
+                    <p>
+                        As the number of shoppers using mobile devices to research and order online
+                        continues to grow, wish lists will become more relevant to the ecommerce
+                        experience. Just over half of all U.S. consumers will use a mobile device to
+                        research merchandise during the holiday season. Of these customers,
+                        <strong>59 percent</strong> state they will use their tablet or smartphone
+                        to help make direct online purchases.
+                    </p>
+                </div>
+
+                <div class="night-sky">
+                    <div class="star star-1"></div>
+                    <div class="star star-2"></div>
+                    <div class="star star-3"></div>
+                    <div class="moon"></div>
+                    <div class="shooting-star"></div>
+                    <div class="mountains"></div>
+                    <div class="land">
+                        <div class="windmill">
+                            <div class="light"></div>
+                            <div class="blades"></div>
+                        </div>
+                        <div class="tree"></div>
+                    </div>
+                </div>
+
+                <form action="" class="wish-form">
+                    <input type="text" id="inputWish" name="wish" autofocus placeholder="I Wish" />
+
+                    <button type="submit" id="btn"><i class="fas fa-star"></i></button>
+                </form>
+
+                <div class="demo">
+                    <dl class="list maki" id="list-1">
+                        <dt>Wish List # 1</dt>
+                        <dd><a href="#">Rent</a></dd>
+                        <dd><a href="#">Groceries</a></dd>
+                        <dd><a href="#">Laptop</a></dd>
+                        <dd><a href="#">Water</a></dd>
+                        <dd><a href="#">Basic Clothing</a></dd>
+                        <dd><a href="#">Car</a></dd>
+                    </dl>
+
+                    <dl class="list sashimi">
+                        <dt>Wish List # 2</dt>
+                        <dd><a href="#">Books</a></dd>
+                        <dd><a href="#">Entertainment</a></dd>
+                        <dd><a href="#">Vacation Home</a></dd>
+                        <dd><a href="#">Phone</a></dd>
+                        <dd><a href="#">Shoes</a></dd>
+                        <dd><a href="#">Star</a></dd>
+                        <dd><a href="#">Guitar</a></dd>
+                        <dd><a href="#">Insurance</a></dd>
+                        <dd><a href="#">Utilities</a></dd>
+                    </dl>
+
+                    <a href="#" class="toggle">Toggle</a>
+                </div>
+
+                <div class="warning">
+                    <div class="message">
+                        <h1>CSS 3D Not Detected :(</h1>
+                        <p>
+                            I couldn't detect your browser's CSS 3D capabilities. If I'm wrong,
+                            please
+                            <a href="https://github.com/soulwire/Makisu/issues" target="_blank"
+                                >file an issue</a
+                            >, otherwise, try a
+                            <a href="www.google.com/chrome" target="_blank">sexier browser</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <a href="#" class="btn">Next</a>
             </div>
         </section>
     </body>
