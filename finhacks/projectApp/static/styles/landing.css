@@ -40,8 +40,11 @@
 }
 
 .logo {
-    width: 450px;
-    margin-bottom: -110px;
+    width: 1000px;
+    margin-bottom: -200px;
+    height: 500px;
+    margin-left: 20px;
+
 }
 
 .landing h1 {
