@@ -44,13 +44,37 @@
     margin-bottom: -110px;
 }
 
-.landing h1 {
+.next-btn {
     font-family: "Shadows Into Light", cursive;
-
     font-weight: lighter;
     text-transform: uppercase;
     line-height: 1;
+    font-size: 30px;
     margin-bottom: 0;
+    text-decoration: none;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    color: #333;
+    padding-bottom: 0.5rem;
+    transition: all 0.25s ease-in-out;
+}
+
+.next-btn:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    height: 7px;
+    width: 100%;
+    border: solid 3px #c67a82;
+    border-color: #83353d transparent transparent transparent;
+    border-radius: 30%;
+}
+
+.next-btn:hover {
+    color: #000;
+    border-color: #000;
 }
 
 .landing .right img {
