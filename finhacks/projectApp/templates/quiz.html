@@ -2,54 +2,88 @@
 <link rel="stylesheet" href="../static/quiz.css" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<div class='situation-container'>
-<p class='situation'>Bruce has 1000$ as salary for his job, he wants to spend his money wisely and adopt the 'Spend Less Than You Earn, Save The Difference' rule. Suddenly an Avril Lavign concert is in town and the tickets cost 2000$. Bruce is thinking of borrowing the rest of the money from his friends. Is this a good idea?</p>
-</div>
+<div class="situation-container"></div>
 <div class="container">
-  
     <form class="quiz">
-      <div class="quiz__inner">
-      <div data-question="1" class="quiz__step--1 quiz__step--current quiz__step">
-        <div class="question__emoji">🚬 </div>
-        <h1 class="quiz__question">Bruce has 1000$ as salary for his job, he wants to spend his money wisely and adopt the 'Spend Less Than You Earn, Save The Difference' rule. Suddenly an Avril Lavign concert is in town and the tickets cost 2000$. Bruce is thinking of borrowing the rest of the money from his friends. Is this a good idea?</h1>
-        <div class="answer">
-          <input data-char="65" class="answer__input" type="radio" id="smoke_yes" name="smoke" value="Yes">
-          <label  class="answer__label" for="smoke_yes">Yes</label>
-        </div>
-        <div class="answer">
-          <input data-char="66" class="answer__input" type="radio" id="smoke_no" name="smoke" value="No">
-          <label class="answer__label" for="smoke_no">No</label>
-        </div> 
-        <div class="answer">
-          <input data-char="65" class="answer__input" type="radio" id="smoke_yes" name="smoke" value="Yes">
-          <label  class="answer__label" for="smoke_yes">Yes</label>
-        </div>      
-      </div>
-  
-      </div>
-  
-    
-    <div id="summary"></div>
+        <div class="quiz__inner">
+            <div data-question="1" class="quiz__step--1 quiz__step--current quiz__step">
+                <div class="question__emoji">🚬</div>
+                <h1 class="quiz__question">
+                    Bruce has 1000$ as salary for his job, he wants to spend his money wisely and
+                    adopt the <strong>'Spend Less Than You Earn, Save The Difference'</strong> rule.
+                    Suddenly an Avril Lavign concert is in town and the tickets cost <u>2000$</u>.
+                    Bruce is thinking of <em>borrowing</em> the rest of the money from his friends.
+                    Is this a good idea?
+                </h1>
+                <div class="answer">
+                    <input
+                        data-char="65"
+                        class="answer__input"
+                        type="radio"
+                        id="smoke_yes"
+                        name="smoke"
+                        value="Yes"
+                    />
+                    <label class="answer__label" for="smoke_yes">Yes</label>
+                </div>
+                <div class="answer">
+                    <input
+                        data-char="66"
+                        class="answer__input"
+                        type="radio"
+                        id="smoke_no"
+                        name="smoke"
+                        value="No"
+                    />
+                    <label class="answer__label" for="smoke_no">No</label>
+                </div>
+                {% comment %}
+                <div class="answer">
+                    <input
+                        data-char="65"
+                        class="answer__input"
+                        type="radio"
+                        id="smoke_yes"
+                        name="smoke"
+                        value="Yes"
+                    />
+                    <label class="answer__label" for="smoke_yes">Yes</label>
+                </div>
+                {% endcomment %}
+
+                <div id="summary"></div>
                 <div class="submit__container">
-        <a href="wish_list" class="submit">Submit</a>
-      </div> 
-      </div>
+                    <a href="wish_list" class="submit">Submit</a>
+                </div>
+            </div>
         </div>
     </form>
-  </div>
-  
-  <footer class="bottom">
+
+    <a href="wish_list" class="btn"> Next </a>
+</div>
+
+{% comment %}
+<footer class="bottom">
     <section class="bottom__container">
-      <div class="progress">
-      <div class="progress__inner"></div>
-    </div>
-    <div class="navigation">
-      <div class="navigation__btn navigation__btn--left"><svg width="20" height="20" viewBox="0 0 24 24">
-      <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
-  </svg></div>
-      <div class="navigation__btn navigation__btn--right"><svg width="20" height="20" viewBox="0 0 24 24">
-    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
-  </svg></div>
-    </div>
-    </section>  
-  </footer>
+        <div class="progress">
+            <div class="progress__inner"></div>
+        </div>
+        <div class="navigation">
+            <div class="navigation__btn navigation__btn--left">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                        d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
+                    ></path>
+                </svg>
+            </div>
+            <div class="navigation__btn navigation__btn--right">
+                <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path
+                        d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                    ></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+</footer>
+{% endcomment %}

@@ -1,19 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700,800');
-*{
-  box-sizing: border-box
-}
-html, body{
-  margin:0;
-  padding:0;
-  height:100%;
-  color:#14152C;
-  font-family: 'Raleway', sans-serif;
- 
-}
-
-body{
-  background-color:#f7f8fc;
-}
+@import "./styles/base.css";
 
 .bottom {
     position: fixed;
@@ -22,14 +7,14 @@ body{
     width: 100%;
     background-color: #fff;
     padding: 15px 10px;
-    box-shadow: 0px -2px 12px rgba(0,0,0,0.1);
+    box-shadow: 0px -2px 12px rgba(0, 0, 0, 0.1);
 }
 
 .bottom__container {
     max-width: 1200px;
     margin: auto;
     display: flex;
-      justify-content: space-between;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -38,7 +23,7 @@ body{
     height: 10px;
     position: relative;
     border-radius: 5px;
-  overflow:hidden;
+    overflow: hidden;
     background-color: #ecedf5;
 }
 .progress__inner {
@@ -49,11 +34,11 @@ body{
     left: 0;
     width: 0%;
     background-color: #5861af;
-  transition:.4s width linear
+    transition: 0.4s width linear;
 }
 
-.navigation__btn path{
-  fill:#A7AACB
+.navigation__btn path {
+    fill: #a7aacb;
 }
 .navigation {
     display: flex;
@@ -64,26 +49,26 @@ body{
     display: flex;
     align-items: center;
     width: 44px;
-    border: 1px solid #A7AACB;
+    border: 1px solid #a7aacb;
     justify-content: center;
     height: 44px;
 }
 
-.navigation__btn--left{
-  border-top-left-radius:6px;
-    border-bottom-left-radius:6px
+.navigation__btn--left {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
-.navigation__btn--right{
-  border-top-right-radius:6px;
-    border-bottom-right-radius:6px
+.navigation__btn--right {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
-.quiz__question{
-  font-weight:900;
-  letter-spacing:1px;
+.quiz__question {
+    letter-spacing: 1px;
     margin-top: 0;
-    font-size: 34px;
+    font-size: 28px;
+    font-weight: 400;
 }
 
 .container {
@@ -95,8 +80,8 @@ body{
     padding: 15px 10px;
     margin-top: 50px;
 }
-.answer:first-of-type{
-  margin-right:15px;
+.answer:first-of-type {
+    margin-right: 15px;
 }
 .answer__input {
     appearance: none;
@@ -105,43 +90,42 @@ body{
     width: 1px;
     height: 1px;
     position: absolute;
-  outline:none !important;
+    outline: none !important;
 }
 
 .answer__label {
     width: 140px;
-    border: 1px solid #A7AACB;
-    display: inline-block;
+    border: 1px solid #a7aacb;
+    display: flex;
     border-radius: 6px;
-    padding: 0px 15px;
-  padding-left:55px;
-  line-height: 56px;
+    line-height: 56px;
     font-size: 15px;
-  color: #A7AACB;
-  text-align:left;
+    color: #a7aacb;
+    text-align: left;
     font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 .answer {
     display: inline-block;
-  margin-right:10px;
+    margin-right: 10px;
 }
-
-
 
 .quiz__step {
     text-align: center;
 }
 
-.answer__input:checked + .answer__label{
-  border-color:#5861af;
-  color:#14152C;
-  box-shadow: 0px 0px 1px 4px rgba(88,97,175, 0.2)
+.answer__input:checked + .answer__label {
+    border-color: #5861af;
+    color: #14152c;
+    box-shadow: 0px 0px 1px 4px rgba(88, 97, 175, 0.2);
 }
 
-.answer__input:checked + .answer__label .answer__tick{
-  opacity:1;
-  visibility:visible;
+.answer__input:checked + .answer__label .answer__tick {
+    opacity: 1;
+    visibility: visible;
 }
 
 .answer__char {
@@ -165,12 +149,12 @@ body{
     line-height: 14px;
     border-radius: 50%;
     padding: 4px;
-    opacity:0;
+    opacity: 0;
     visibility: hidden;
 }
 
-.answer__tick path{
-  fill:#fff
+.answer__tick path {
+    fill: #fff;
 }
 .quiz__inner {
     max-width: 800px;
@@ -179,15 +163,15 @@ body{
     justify-content: center;
 }
 
-.quiz__step:not(.quiz__step--current){
-  visibility:hidden;
-  opacity:0;
-  display:none;
+.quiz__step:not(.quiz__step--current) {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
 }
-.question__emoji{
-  font-size:45px;
-  margin-bottom:15px;
-      display: inline-block;
+.question__emoji {
+    font-size: 45px;
+    margin-bottom: 15px;
+    display: inline-block;
     margin-right: 15px;
 }
 .navigation__btn--disabled {
@@ -208,11 +192,10 @@ body{
     text-decoration: none;
     color: #fff;
     letter-spacing: 1px;
-    box-shadow: 0px 6px 11px rgba(88,97,175, 0.6);
+    box-shadow: 0px 6px 11px rgba(88, 97, 175, 0.6);
     min-width: 130px;
     font-weight: 700;
     text-transform: uppercase;
-    margin-left: 150px;
     text-align: center;
 }
 
@@ -233,7 +216,6 @@ body{
     text-align: center;
     font-size: 40px;
 }
-.thanks{
-  text-align:center;
+.thanks {
+    text-align: center;
 }
-

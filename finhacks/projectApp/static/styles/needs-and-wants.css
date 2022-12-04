@@ -1,7 +1,6 @@
 @import "./base.css";
 
 .needs_and_wants.container {
-    background: #cbc2b9;
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -92,4 +91,5 @@
 #draggableItemsList li {
     padding: 0.5rem 1rem;
     cursor: pointer;
+    text-transform: capitalize;
 }
