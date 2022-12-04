@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="" />
+
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js"></script>
+        <script defer src="../static/scripts/interest.js"></script>
+
+        <link rel="stylesheet" href="../static/styles/interest.css" />
+        <title>Landing Page</title>
+    </head>
+
+    <body>
+        <h1>The Power of Compound Interest</h1>
+        <p class="Subtitle">
+            The average stock market return is about <span class="Highlight">10% per year</span> for
+            nearly the last century.
+        </p>
+        <main>
+            <div class="LeftPanel">
+                <section>
+                    <div class="Form">
+                        <div class="Form-row">
+                            <label for="deposit">Monthly Deposit (USD)</label>
+                            <input
+                                id="deposit"
+                                type="text"
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                value="1000"
+                            />
+                        </div>
+                        <div class="Form-row">
+                            <label for="interest">Avg. Annual Return (%)</label>
+                            <input
+                                id="interest"
+                                type="text"
+                                inputmode="numeric"
+                                pattern="[0-9]*"
+                                value="10"
+                            />
+                        </div>
+                        <div class="Form-row">
+                            <label for="years"><span class="YearCount"></span> Invested</label>
+                            <div class="Flex u-mt-8">
+                                <span class="Label">1</span>
+                                <input value="20" type="range" min="1" max="100" />
+                                <span class="Label">100</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="SVGWrap">
+                <svg width="382" height="318" viewBox="0 15 382 318"></svg>
+            </div>
+        </main>
+
+        <div class="Result">
+            <div class="Result-row">
+                Earnings <span class="Result-number Result-number--interest"></span>
+            </div>
+            <div class="Result-row">
+                Total Investment <span class="Result-number Result-number--noInterest"> </span>
+            </div>
+            <div class="Result-row">
+                Difference <span class="Result-number Result-number--difference"></span>
+            </div>
+        </div>
+
+        <a href="wish_list " class="btn white"> Next </a>
+    </body>
+</html>

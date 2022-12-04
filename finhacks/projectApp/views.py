@@ -4,6 +4,11 @@ from django.template import loader
 
 
 def index(request):
+    template = loader.get_template("auth.html")
+    return HttpResponse(template.render())
+
+
+def landing(request):
     template = loader.get_template("landing.html")
     return HttpResponse(template.render())
 
@@ -30,4 +35,9 @@ def wish_list(response):
 
 def expense_tracker(response):
     template = loader.get_template("expense_tracker.html")
+    return HttpResponse(template.render())
+
+
+def interest(response):
+    template = loader.get_template("interest.html")
     return HttpResponse(template.render())
