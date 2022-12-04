@@ -71,7 +71,7 @@ function addTransactionDOM(transaction) {
 function updateValues() {
     const amounts = transactions.map(transaction => transaction.amount);
 
-    const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
+    const total = amounts.reduce((acc, item) => (acc += item), 0);
 
     const income = amounts
         .filter(item => item > 0)
@@ -82,15 +82,15 @@ function updateValues() {
         amounts.filter(item => item < 0).reduce((acc, item) => (acc += item), 0) * -1
     ).toFixed(2);
 
-    balance.innerText = `$${total}`;
-    money_plus.innerText = `$${income}`;
-    money_minus.innerText = `$${expense}`;
+    balance.innerText = `₱${total.toLocaleString("en", { minimumFractionDigits: 2 })}`;
+
+    money_plus.innerText = `₱${income}`;
+    money_minus.innerText = `₱${expense}`;
 }
 
 // Remove transaction by ID
 function removeTransaction(id) {
     transactions = transactions.filter(transaction => transaction.id !== id);
-
     updateLocalStorage();
 
     init();
@@ -113,6 +113,12 @@ init();
 
 form.addEventListener("submit", addTransaction);
 
+const randomInRange = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min);
+};
+
+let RATES = [];
+
 const lineGraph = document.querySelector("#line-graph");
 if (lineGraph) {
     const MONTH_NAMES = [
@@ -130,11 +136,15 @@ if (lineGraph) {
         "Dec",
     ];
 
-    const RATES = [
-        9.3373, 9.309411, 9.1076, 9.5415, 10.6559, 10.830914, 11.487409, 10.7406, 10.689505,
-        10.65632, 10.8854, 11.878485, 13.626412, 13.936211, 12.895415, 12.886791, 12.900309,
-        13.185409, 15.049805, 15.137605, 15.012016, 16.515005, 14.123213,
-    ];
+    for (let i = 0; i < 24; i++) {
+        RATES.push(randomInRange(40_000, 60_000));
+    }
+
+    // const RATES = [
+    //     9.3373, 9.309411, 9.1076, 9.5415, 10.6559, 10.830914, 11.487409, 10.7406, 10.689505,
+    //     10.65632, 10.8854, 11.878485, 13.626412, 13.936211, 12.895415, 12.886791, 12.900309,
+    //     13.185409, 15.049805, 15.137605, 15.012016, 16.515005, 14.123213,
+    // ];
     // {
     //     label: "Predicted",
     //     data: lastPredictedYearData,
@@ -212,3 +222,48 @@ if (lineGraph) {
         options,
     });
 }
+
+const predictBtn = document.querySelector(".predict-btn");
+const loadingSpinner = document.querySelector(".spinner-container");
+
+const totalExpenses = document.querySelector("#total-expenses");
+const lastMonthExpenses = document.querySelector("#last-month-expenses");
+const predictedBill = document.querySelector("#predicted-bill");
+const accuracy = document.querySelector("#accuracy");
+
+lastMonthExpenses.textContent = `₱${RATES.slice(-1)[0].toLocaleString("en", {
+    minimumFractionDigits: 2,
+})}`;
+
+const calculateAccuracy = (forecasted, actual) => {
+    console.log(forecasted, actual);
+    if (!forecasted || !actual) return 0;
+
+    const errorRate = (Math.abs(forecasted - actual) / forecasted) * 100;
+    const accuracy = (100 - errorRate).toFixed(2);
+
+    return +accuracy;
+};
+
+predictBtn.addEventListener("click", e => {
+    // if (!predictedBill.textContent.trim()) return;
+    loadingSpinner.classList.add("show");
+
+    setTimeout(() => {
+        loadingSpinner.classList.remove("show");
+        predictedBill.textContent = `₱${randomInRange(40_000, 75_000).toLocaleString("en", {
+            minimumFractionDigits: 2,
+        })}`;
+
+        var predBill = +predictedBill.textContent.replace(/,/g, "").slice(1);
+
+        const resAccuracy = calculateAccuracy(
+            predBill,
+            +totalExpenses.textContent.replace(/,/g, "").slice(1)
+        );
+
+        accuracy.textContent = `${resAccuracy.toFixed(2)}%`;
+    }, 5000);
+
+    totalExpenses.textContent = balance.textContent;
+});

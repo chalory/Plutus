@@ -11,46 +11,129 @@
     </head>
     <body>
         <main class="expense-tracker">
-            <h1 class="heading-primary">Monthly Expenses Tracker</h1>
+            <h1>Monthly Expenses Tracker</h1>
+            <div class="upper">
+                <div class="tracker">
+                    <div class="heading">Your Total:</div>
+                    <div id="balance">00.00</div>
 
-            <div class="tracker">
-                <div class="heading">Your Balance</div>
-                <div id="balance">$0.00</div>
+                    <div class="inc-exp-container">
+                        <div>
+                            <h4>Income</h4>
+                            <p id="money-plus" class="money plus">+₱0.00</p>
+                        </div>
+                        <div>
+                            <h4>Expense</h4>
+                            <p id="money-minus" class="money minus">-₱0.00</p>
+                        </div>
+                    </div>
 
-                <div class="inc-exp-container">
-                    <div>
-                        <h4>Income</h4>
-                        <p id="money-plus" class="money plus">+$0.00</p>
-                    </div>
-                    <div>
-                        <h4>Expense</h4>
-                        <p id="money-minus" class="money minus">-$0.00</p>
-                    </div>
+                    <div class="heading">History</div>
+                    <ul id="list" class="list"></ul>
+
+                    <div class="heading">Add new transaction</div>
+                    <form id="form">
+                        <div class="form-control">
+                            <label for="text">Text</label>
+                            <input type="text" id="text" placeholder="Enter text..." />
+                        </div>
+                        <div class="form-control">
+                            <label for="amount"
+                                >Amount <br />
+                                (-) expense, (+) income</label
+                            >
+                            <input type="number" id="amount" placeholder="Enter amount..." />
+                        </div>
+                        <div class="actions">
+                            <button type="submit" class="add-btn">Add transaction</button>
+                            <button type="button" class="predict-btn">Submit</button>
+                        </div>
+                    </form>
                 </div>
 
-                <div class="heading">History</div>
-                <ul id="list" class="list"></ul>
+                <div class="right">
+                    <div class="graph">
+                        <div class="heading">Previous Expenses</div>
+                        <canvas id="line-graph"></canvas>
+                    </div>
+                    {% comment %}
+                    <div class="spinner-container">
+                        <div class="text">Training data....</div>
+                        <div class="loading-spinner">
+                            <div id="square1"></div>
+                            <div id="square2"></div>
+                            <div id="square3"></div>
+                            <div id="square4"></div>
+                            <div id="square5"></div>
+                        </div>
+                    </div>
+                    {% endcomment %}
+                    <div class="train-result">
+                        <div class="current-data">
+                            <div class="control">
+                                <div class="control__label">
+                                    Predicted Bill
+                                    <div class="date small">(January, 2023)</div>
+                                </div>
+                                <div class="control__value">
+                                    <div id="predicted-bill"></div>
+                                    <div class="loading spinner-container">
+                                        <p>Training data...</p>
+                                        <div class="loading-spinner">
+                                            <div id="square1"></div>
+                                            <div id="square2"></div>
+                                            <div id="square3"></div>
+                                            <div id="square4"></div>
+                                            <div id="square5"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                <div class="heading">Add new transaction</div>
-                <form id="form">
-                    <div class="form-control">
-                        <label for="text">Text</label>
-                        <input type="text" id="text" placeholder="Enter text..." />
+                            <div class="control">
+                                <div class="control__label">Total Balance:</div>
+                                <div class="control__value">
+                                    <span id="total-expenses"></span>
+                                </div>
+                            </div>
+                            <div class="control">
+                                <div class="control__label">Last Month's Expenses:</div>
+                                <div class="control__value">
+                                    <span id="last-month-expenses">123</span>
+                                </div>
+                            </div>
+                            <div class="control">
+                                <div class="control__label">Accuracy</div>
+                                <div class="control__value" id="accuracy">0%</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-control">
-                        <label for="amount"
-                            >Amount <br />
-                            (negative - expense, positive - income)</label
-                        >
-                        <input type="number" id="amount" placeholder="Enter amount..." />
-                    </div>
-                    <button class="add-btn">Add transaction</button>
-                </form>
+                </div>
             </div>
 
-            <div class="graph">
-                <h2>Previous Expenses</h2>
-                <canvas id="line-graph"></canvas>
+            <div class="data-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Month</th>
+                            <th>Year</th>
+                            <th>Forecasted Balance</th>
+                            <th>Actual Balance</th>
+                            <th>Accuracy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="capitalize">November</td>
+                            <td>2022</td>
+                            <td>₱ 48.831</td>
+                            <td>₱ 53.452</td>
+                            <td class="status fail">95.96%</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </main>
     </body>
